@@ -387,10 +387,10 @@ footer {
   width: 100%;
 }
 
-footer.index{
+/* footer.index{
   position: absolute;
   bottom: 0;
-}
+} */
 
 footer.details {
   position: absolute;
