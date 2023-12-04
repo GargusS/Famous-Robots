@@ -145,10 +145,10 @@ if (document.getElementById("carousel")) {
     navRight.className = "nav nav-right";
 
     const iconLeft = document.createElement("img");
-    iconLeft.src = "../assets/arrow-left.png";
+    iconLeft.src = "./assets/arrow-left.png";
 
     const iconRight = document.createElement("img");
-    iconRight.src = "../assets/arrow-right.png";
+    iconRight.src = "./assets/arrow-right.png";
 
     document.getElementsByClassName("nav-left")[0].appendChild(iconLeft);
     iconLeft.className = "carousel-arrow-icon-left";

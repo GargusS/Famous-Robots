@@ -379,18 +379,21 @@ footer {
   max-width: 1920px;
   font-size: 1.3em;
   background-color: rgba(33, 33, 33, 0.8);
-  color: var(--foreground);
-  text-align: center;
+  /* color: var(--foreground); */
+  /* text-align: center; */
   padding: 1em;
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  bottom: -3em;
   width: 100%;
 }
 
-footer.blog,
+footer.index{
+  position: absolute;
+  bottom: 0;
+}
+
 footer.details {
-  position: relative;
-  margin-top: 3em;
+  position: absolute;
   bottom: 0;
 }
 
