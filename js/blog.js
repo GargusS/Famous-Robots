@@ -24,7 +24,7 @@ const createCard = (blogData) => {
 
   const img = document.createElement("img");
   img.setAttribute("src", blogData.jetpack_featured_media_url);
-  img.setAttribute("alt", blogData.altText || "Default Alt Text");
+  img.setAttribute("alt", blogData.altText || "Picture of a robot from the article");
   img.className = "card-image";
 
   const title = document.createElement("h2");

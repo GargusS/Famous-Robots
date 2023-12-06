@@ -16,13 +16,12 @@ if (document.getElementById("carousel")) {
       dataArray.forEach(async (item) => {
         // Access wp:featuredmedia array
         const featuredMediaArray = item._links["wp:featuredmedia"];
-
         // Iterate through wp:featuredmedia array
         for (const media of featuredMediaArray) {
           await fetchDataFromMediaURL(media.href, item);
         }
       });
-
+      
       async function fetchDataFromMediaURL(url, post) {
         try {
           const response = await fetch(url);

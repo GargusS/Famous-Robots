@@ -1,3 +1,7 @@
+:root {
+  --foreground: antiquewhite;
+}
+
 .carousel-content {
   position: relative;
   margin-bottom: 0;
@@ -23,7 +27,11 @@
 }
 
 .blog-item.active {
-  transform: scaleY(100%);
+  box-sizing: content-box;
+}
+
+.blog-item.active img {
+  width: 100%;
 }
 
 .nav {
@@ -57,7 +65,7 @@
 .blog-item h2 {
   height: 3em;
   font-size: 2em;
-  color: #fff;
+  color: var(--foreground);
 }
 
 .blog-item img {

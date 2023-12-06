@@ -40,9 +40,9 @@ function createCard(info) {
 
 function createImage(info) {
   const img = document.createElement("img");
-  img.setAttribute("src", info.jetpack_featured_media_url);
-  img.setAttribute("alt", info.altText || "Picture of a robot from the article");
   img.setAttribute("id", "modal-trigger");
+  img.setAttribute("src", info.jetpack_featured_media_url);
+  img.setAttribute("alt", info.altText || "Picture of a robot from the article ");
   img.className = "card-image";
 
   img.addEventListener("load", handleImageLoad);
@@ -67,13 +67,14 @@ function handleImageLoad() {
   const imagesLoaded = Array.from(imagesToLoad).filter((img) => img.complete).length;
 
   imagesToLoad.forEach((image) => {
-    const popimg = document.createElement("img");
+    const popUpImage = document.createElement("img");
     const modal = document.getElementById("modal-box");
     modalCover = document.getElementById("cover");
     modalClose = document.getElementById("close-modal");
-    popimg.setAttribute("src", image.getAttribute("src"));
-    popimg.className = "popimg";
-    modal.appendChild(popimg);
+    popUpImage.setAttribute("src", image.getAttribute("src"));
+    popUpImage.setAttribute("alt", image.altText || "Picture of a robot from the article ");
+    popUpImage.className = "popUpImage";
+    modal.appendChild(popUpImage);
 
     const modalTrigger = document.getElementById("modal-trigger");
     modalTrigger.addEventListener("click", function () {
