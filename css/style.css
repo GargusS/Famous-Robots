@@ -475,6 +475,13 @@ footer p {
 #close-modal > p {
   margin: 0;
 }
+
+.attribution,
+.attribution a {
+  text-decoration: none;
+  color: var(--background);
+  height: 0;
+}
 /* On screens that are 980px or less*/
 @media screen and (max-width: 980px) {
   header ul.main-nav {
