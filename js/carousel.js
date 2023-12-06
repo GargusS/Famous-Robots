@@ -21,7 +21,7 @@ if (document.getElementById("carousel")) {
           await fetchDataFromMediaURL(media.href, item);
         }
       });
-      
+
       async function fetchDataFromMediaURL(url, post) {
         try {
           const response = await fetch(url);
@@ -145,9 +145,11 @@ if (document.getElementById("carousel")) {
 
     const iconLeft = document.createElement("img");
     iconLeft.src = "./assets/arrow-left.png";
+    iconLeft.alt = "Left navigation arrow";
 
     const iconRight = document.createElement("img");
     iconRight.src = "./assets/arrow-right.png";
+    iconRight.alt = "Right navigation arrow";
 
     document.getElementsByClassName("nav-left")[0].appendChild(iconLeft);
     iconLeft.className = "carousel-arrow-icon-left";
