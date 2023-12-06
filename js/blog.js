@@ -72,7 +72,6 @@ const fetchBlogs = async (startIndex, endIndex) => {
     }
 
     const data = await response.json();
-    console.log(data);
 
     displayBlogs(data.slice(startIndex, endIndex));
   } catch (error) {

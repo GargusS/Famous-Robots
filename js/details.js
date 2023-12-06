@@ -41,7 +41,7 @@ function createCard(info) {
 function createImage(info) {
   const img = document.createElement("img");
   img.setAttribute("src", info.jetpack_featured_media_url);
-  img.setAttribute("alt", info.altText || "Default Alt Text");
+  img.setAttribute("alt", info.altText || "Picture of a robot from the article");
   img.setAttribute("id", "modal-trigger");
   img.className = "card-image";
 
@@ -76,7 +76,6 @@ function handleImageLoad() {
     modal.appendChild(popimg);
 
     const modalTrigger = document.getElementById("modal-trigger");
-    console.log(modalTrigger);
     modalTrigger.addEventListener("click", function () {
       modalCover.classList.add("cover-displayed");
     });
@@ -84,10 +83,9 @@ function handleImageLoad() {
     // Add event listener to close the modal when clicking outside the box
     modalCover.addEventListener("click", function (event) {
       if (event.target === modalCover) {
-          modalCover.classList.remove("cover-displayed");
+        modalCover.classList.remove("cover-displayed");
       }
-  });
-    
+    });
   });
 
   if (imagesLoaded === imagesToLoad.length) {
