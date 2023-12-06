@@ -3,24 +3,14 @@ if (document.getElementById("carousel")) {
     try {
       const apiUrl = "https://cms.sonnesyn.no/wp-json/wp/v2/posts?per_page=50";
       const resp = await fetch(apiUrl);
+
       if (!resp.ok) {
         throw new Error("4-oh-4, Oops something went wrong here");
       }
 
       const dataArray = await resp.json();
-
       const postsContainer = document.getElementById("dataArray");
       const loader = document.querySelector(".loader");
-
-      // Iterate through each object in the dataArray
-      dataArray.forEach(async (item) => {
-        // Access wp:featuredmedia array
-        const featuredMediaArray = item._links["wp:featuredmedia"];
-        // Iterate through wp:featuredmedia array
-        for (const media of featuredMediaArray) {
-          await fetchDataFromMediaURL(media.href, item);
-        }
-      });
 
       async function fetchDataFromMediaURL(url, post) {
         try {
@@ -31,18 +21,14 @@ if (document.getElementById("carousel")) {
           }
 
           const mediaData = await response.json();
-          // Extract alt_text from mediaData
-          const altText = mediaData.alt_text || "Picture of a robot from the article";
-
-          // Call createPostContainer with altText
-          createPostContainer(post, "post-container", altText);
+          return mediaData.alt_text || "Picture of a robot from the article";
         } catch (error) {
           console.error("Error fetching media data:", error.message);
+          return "Default Alt Text";
         }
       }
 
-      // Function to create a post container
-      function createPostContainer(post, className, altText) {
+      function createPostContainer(post, className) {
         const { title, jetpack_featured_media_url, excerpt } = post;
         const postContainer = document.createElement("div");
         postContainer.className = className;
@@ -51,7 +37,11 @@ if (document.getElementById("carousel")) {
         h2.innerHTML = title.rendered;
         const img = document.createElement("img");
         img.setAttribute("src", jetpack_featured_media_url);
-        img.setAttribute("alt", altText);
+
+        // Fetch alt text for the image
+        fetchDataFromMediaURL(post._links["wp:featuredmedia"][0].href, post)
+          .then((altText) => img.setAttribute("alt", altText))
+          .catch((error) => console.error("Error setting alt text:", error));
 
         const postExcerpt = document.createElement("div");
         postExcerpt.innerHTML = excerpt.rendered;
@@ -62,14 +52,14 @@ if (document.getElementById("carousel")) {
         };
 
         postContainer.append(h2, img, postExcerpt);
-
-        return postContainer;
+        postsContainer.appendChild(postContainer);
       }
 
-      dataArray.forEach((post) => {
-        const postContainer = createPostContainer(post, "blog-item");
-        postsContainer.appendChild(postContainer);
-      });
+      await Promise.all(
+        dataArray.map(async (item) => {
+          createPostContainer(item, "blog-item");
+        })
+      );
 
       const imagesToLoad = postsContainer.querySelectorAll("img");
       let imagesLoaded = 0;
@@ -85,14 +75,12 @@ if (document.getElementById("carousel")) {
             const width = window.innerWidth;
 
             if (width <= 600) {
-              // Clear out the container before appending new items
               postsContainer.innerHTML = "";
               dataArray.forEach((post) => {
                 const mobileItemContainer = createPostContainer(post, "mobile-item");
                 postsContainer.appendChild(mobileItemContainer);
               });
             } else {
-              // Call the function if the screen size is over 600px
               initializeSlider();
             }
           }
@@ -104,7 +92,6 @@ if (document.getElementById("carousel")) {
     }
   }
 
-  // Wrap the subsequent code in a function to call after data is loaded
   function initializeSlider() {
     const blogItems = Array.from(document.querySelectorAll(".blog-item"));
 
