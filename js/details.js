@@ -84,9 +84,10 @@ function handleImageLoad() {
     // Add event listener to close the modal when clicking outside the box
     modalCover.addEventListener("click", function (event) {
       if (event.target === modalCover) {
-        modalCover.classList.remove("cover-displayed");
+          modalCover.classList.remove("cover-displayed");
       }
-    });
+  });
+    
   });
 
   if (imagesLoaded === imagesToLoad.length) {
