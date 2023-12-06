@@ -29,10 +29,6 @@ function createCard(info) {
   const title = createTitle(info);
   const content = createContent(info);
 
-  card.onclick = function () {
-    window.location.href = `details.html?id=${info.id}`;
-  };
-
   card.appendChild(title);
   card.appendChild(img);
   card.appendChild(content);
@@ -46,6 +42,7 @@ function createImage(info) {
   const img = document.createElement("img");
   img.setAttribute("src", info.jetpack_featured_media_url);
   img.setAttribute("alt", info.altText || "Default Alt Text");
+  img.setAttribute("id", "modal-trigger");
   img.className = "card-image";
 
   img.addEventListener("load", handleImageLoad);
@@ -68,6 +65,29 @@ function createContent(info) {
 function handleImageLoad() {
   const imagesToLoad = cardContainer.querySelectorAll("img");
   const imagesLoaded = Array.from(imagesToLoad).filter((img) => img.complete).length;
+
+  imagesToLoad.forEach((image) => {
+    const popimg = document.createElement("img");
+    const modal = document.getElementById("modal-box");
+    modalCover = document.getElementById("cover");
+    modalClose = document.getElementById("close-modal");
+    popimg.setAttribute("src", image.getAttribute("src"));
+    popimg.className = "popimg";
+    modal.appendChild(popimg);
+
+    const modalTrigger = document.getElementById("modal-trigger");
+    console.log(modalTrigger);
+    modalTrigger.addEventListener("click", function () {
+      modalCover.classList.add("cover-displayed");
+    });
+
+    // Add event listener to close the modal when clicking outside the box
+    modalCover.addEventListener("click", function (event) {
+      if (event.target === modalCover) {
+        modalCover.classList.remove("cover-displayed");
+      }
+    });
+  });
 
   if (imagesLoaded === imagesToLoad.length) {
     loader.classList.add("hidden");

@@ -12,6 +12,7 @@
   --hamburger-gap: 0.6em;
   --foreground: antiquewhite;
   --background: #333;
+  --accentColor: rgb(108, 231, 255);
   --hamburger-margin: 2em;
   --animation-timing: 200ms ease-in-out;
   --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
@@ -102,7 +103,7 @@
 }
 .sidebar span {
   font-size: 1.2em;
-  color: rgb(108, 231, 255);
+  color: ;
 }
 .sidebar a {
   position: relative;
@@ -113,7 +114,7 @@
 .sidebar a:hover {
   position: relative;
   text-decoration: none;
-  color: rgb(108, 231, 255);
+  color: var(--accentColor);
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa,
     0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
 }
@@ -251,7 +252,8 @@ body main#main_blog .card p {
 }
 
 body main#details .card-image {
-  max-width: 500px;
+  max-width: 400px;
+  cursor: zoom-in;
 }
 
 .feature-box h2 {
@@ -295,7 +297,7 @@ p.about-para {
 
 @keyframes fadeOut {
   100% {
-    background-color: rgb(108, 231, 255);
+    background-color: var(--accentColor);
     opacity: 0;
     visibility: hidden;
   }
@@ -319,12 +321,8 @@ p.about-para {
   flex-direction: column;
 }
 
-.card:hover {
+#main_blog div.card:hover {
   cursor: pointer;
-}
-
-main#details div.card:hover {
-  pointer-events: none;
 }
 
 .card h2 {
@@ -387,7 +385,7 @@ footer {
   width: 100%;
 }
 
-footer.index{
+footer.index {
   position: absolute;
   bottom: 0;
 }
@@ -431,6 +429,52 @@ footer p {
   cursor: pointer;
 }
 
+/* modal */
+
+#cover {
+  position: fixed;
+  background-color: rgba(33, 33, 33, 0.8);
+  font-size: larger;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.cover-displayed {
+  display: flex !important;
+}
+
+#modal-box {
+  align-items: center;
+  background-color: rgba(33, 33, 33, 0.8);
+  border: 2px solid;
+  border-radius: 10px;
+  color: var(--accentColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50em;
+  width: 50em;
+}
+
+#modal-message {
+  height: 2em;
+}
+
+#close-modal {
+  position: absolute;
+  margin-top: 23em;
+  cursor: pointer;
+}
+
+#close-modal > p {
+  margin: 0;
+}
 /* On screens that are 980px or less*/
 @media screen and (max-width: 980px) {
   header ul.main-nav {
@@ -598,5 +642,13 @@ footer p {
     background-color: rgba(33, 33, 33, 0.8);
     padding: 0.25em 1em;
     cursor: pointer;
+  }
+
+  #cover {
+    visibility: hidden;
+  }
+
+  .popimg {
+    width: 95%;
   }
 }
