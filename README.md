@@ -1,68 +1,64 @@
-## Project Exam 1
+# Famous Robots Corp - online database
 
-## Goal
+[![CSM](https://img.shields.io/badge/Check%20out%20the%20Famous%20Robots%20Corp%20here-125682)](https://project-exam-23.netlify.app/)
 
-To put into practice the skills learned over your first year of studies.
+![image](/assets/Famousrobots_screenshot.png)
 
-## Brief
-You have been tasked with creating a blog site. You can choose the design and topics covered on the blog, but it should have at least the following pages:
--	Home page
--	About page
--	List of blog posts
--	Blog post specific pages
--	Contact page.
+## About the Project
 
-### Home Page
+End of the year project spanning over 4 weeks with development and user tests. The brief
 
-The home page should feature a 'Latest Posts' section, designed as a carousel (slider) for the desktop version. As an example, you could display four posts at a time, although you're welcome to adjust this number to better suit your design. Users should be able to click an arrow on the right to scroll through to the next set of posts, and an arrow on the left to view the previous set. For the mobile version, you are free to alter the layout as you deem appropriate, without being tied to a carousel format.
+### Key Features:
 
-### Blog Page
+- Relying on HTML for the base structure and CSS for styling, this site uses Javascript for fetching images and text from a headless WorPress CMS for content filling.
+- JavaScript is also used in the mechanics for the front page slider.
+- The page is designed with a futuristic feel to accommodate the robot theme.
 
-The blog posts page should show the first 10 blogs, and the user should click to view more results which then show underneath the first 10 blogs.
+## Stack
 
-### Blog Specific Page
+The technologies utilized in this futuristic project showcase a blend of simplicity and interactivity:
 
-The content of the blog specific page should be dynamically built using a query string parameter based on whatever link the user clicked. The title of the blog specific page should change based on the blog that has been clicked on e.g. “My Blog | An Article I Wrote”.
+- **HTML:** The fundamental markup language for structuring the content and layout of the web page.
+- **CSS:** Cascading Style Sheets used for styling and presenting a visually cohesive design.
+- **JavaScript:** For enhanced interactivity and dynamic functionality, contributing to an engaging user experience.
 
-If images on the blog specific page are clicked, a modal should appear giving the user a bigger view of that image. Clicking outside the image should hide the modal.
+This project's stack represents the foundational HTML and CSS using it to the fullest to create a visually pleasing and accessible web presence.
 
-### Contact page
+---
 
-Create a contact us page, there should be 4 textboxes on this page.
--	Name (Should be more than 5 characters long)
--	Email address (Must be a valid email address)
--	Subject (Should be more than 15 characters long)
--	Message content (Should be more than 25 characters long)
+## Run Locally
 
-Please use JavaScript for validation, show error messages if the values in the textboxes do not meet the requirements.
+1. **Install Git:**
+   Download and install Git from [Git Downloads](https://git-scm.com/downloads) if you haven't already.
 
-### WordPress
+2. **Install Visual Studio Code:**
+   Download and install Visual Studio Code from [VSCode Downloads](https://code.visualstudio.com/download).
 
-The content for your website will be stored on a WordPress installation used as a Headless CMS. It’s important to note that we are only using WordPress to provide an API and add content for the blog. You should not submit a link to a WordPress site, but build your website using HTML, CSS and JavaScript and making a call to the WordPress REST API to fetch the data. 
+3. **Install Live Server Extension:**
+   Open VSCode, go to Extensions (shortcut: `Ctrl+Shift+X` or `Cmd+Shift+X`), search for "Live Server," and install it.
 
-The project has two aspects:
--	API from your WordPress installation
--	Your website built with HTML, CSS and JavaScript
+4. **Clone the Repository:**
+   Open a terminal in VSCode (`View` -> `Terminal`) and navigate to the directory where you want to clone the repository:
 
-You will need to add at least 12 blogs for your website. You can use lorem ipsum for paragraphs if you need, but headings, images etc. should all make sense.
+   ```bash
+   cd path/to/your/directory
+   git clone https://github.com/garguss/project_exam_2023.git
+   ```
 
-Note that this is an exam, and therefore tutor support will be limited as per the study plan.
+5. **Open the Project in VSCode:**
+   Open the cloned project in VSCode:
 
-## Level 1 Process
+   ```bash
+   code .
+   ```
 
-1.	Decide on the theme for the blog you’re going to make
-2.	Create a prototype of the website
-3.	Install WordPress on your web host and add the blogs on the admin panel. 
-4.	Use the GitHub repo created by GitHub Classroom for your files and deploy to Netlify
-5.	Build your website using HTML, CSS and JavaScript making a call to the WordPress REST API to fetch your data.
-6.	Install Hotjar on your website.
-7.	Ask users to test your website, and adjust based on their feedback and any insights from Hotjar.
-8.	Write a report documenting your project (template provided in this repository).
-9.	Submit your report as a PDF and a link to both your Netlify deployment and your GitHub repo.
- 
-## Level 2 Process (optional)
+6. **Launch Live Server:**
+   Right-click on the HTML file you want to preview and select "Open with Live Server" from the context menu.
 
-1.	You can try adding a sort, filter, or search to the blog posts page allowing users to find the blog post more easily that they’re looking for. 
-2.	Post the data from the contact form to WordPress so you have the details saved.
-3.	Allow users to submit comments on a blog post, and post this data to WordPress
+This opens your project in a browser using the Live Server extension.
 
+**Enjoy**
+
+---
+
+_© 2023 Geir Sønnesyn, the Architect of Digital Dreams_
